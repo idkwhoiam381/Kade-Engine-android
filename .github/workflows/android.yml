@@ -39,19 +39,9 @@ jobs:
           java-version: '11'
 
       - name: Setup Haxe
-        uses: krdlab/setup-haxe@master
+        uses: krdlab/setup-haxe@v1.2.0
         with:
-          haxe-version: 4.3.6
-
-      - name: Restore Previous Cache
-        id: cache-debug-build-android-restore
-        uses: actions/cache/restore@main
-        with:
-          path: |
-            .haxelib/
-            export/release/android/haxe/
-            export/release/android/obj/
-          key: cache-android-build
+          haxe-version: 4.2.5
 
       - name: Installing Libraries
         run: |
@@ -110,6 +100,6 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@main
         with:
-          name: FNF corruption build 
+          name: Kade Engine
           path: export/release/android/bin/app/build/outputs/apk/debug
           if-no-files-found: warn
